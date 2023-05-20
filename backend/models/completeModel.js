@@ -3,6 +3,9 @@ const Schema = mongoose.Schema;
 
 const completeModel = new Schema(
   {
+    id: {
+      type: String,
+    },
     title: {
       type: String,
     },

@@ -114,7 +114,9 @@ exports.deleteData = async (req, res) => {
 
 exports.completeData = async (req, res) => {
   try {
+    console.log(req.body);
     let complete = await Complete({
+      id: req.body.id,
       title: req.body.title,
       dYear: req.body.dYear,
       dMonth: req.body.dMonth,
@@ -136,8 +138,10 @@ exports.completeData = async (req, res) => {
 
 exports.getCompleteData = async (req, res) => {
   try {
-    let data = await Complete({ _id: req.params.id });
+    console.log(req.params.id);
+    let data = await Complete.find({ id: req.params.id });
     res.send(data);
+    console.log(data);
   } catch (error) {
     console.log(error.message);
   }
