@@ -75,9 +75,27 @@ exports.newList = async (req, res) => {
   }
 };
 
-exports.newListData = async (req,res) => {
+exports.newListData = async (req, res) => {
   try {
     let data = await newList.find({});
+    res.send(data);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+exports.listDelete = async (req, res) => {
+  try {
+    let data = await newList.deleteOne({ _id: req.params.id });
+    res.send(data);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+exports.getTheme = async (req, res) => {
+  try {
+    let data = await themeModel.find({});
     res.send(data);
   } catch (error) {
     console.log(error.message);
