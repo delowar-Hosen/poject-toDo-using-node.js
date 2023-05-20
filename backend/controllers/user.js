@@ -1,3 +1,4 @@
+const Complete = require("../models/completeModel");
 const dataModel = require("../models/dataModel");
 const newList = require("../models/newListModel");
 const themeModel = require("../models/themeModel");
@@ -96,6 +97,46 @@ exports.listDelete = async (req, res) => {
 exports.getTheme = async (req, res) => {
   try {
     let data = await themeModel.find({});
+    res.send(data);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+exports.deleteData = async (req, res) => {
+  try {
+    let data = await dataModel.deleteOne({ _id: req.params.id });
+    res.send(data);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+exports.completeData = async (req, res) => {
+  try {
+    let complete = await Complete({
+      title: req.body.title,
+      dYear: req.body.dYear,
+      dMonth: req.body.dMonth,
+      dDays: req.body.dDays,
+      data: req.body.data,
+      rYear: req.body.rYear,
+      rMonth: req.body.rMonth,
+      rDay: req.body.rDay,
+      rHour: req.body.rHour,
+      rMinute: req.body.rMinute,
+      rFormat: req.body.rFormat,
+      repeat: req.body.repeat,
+    }).save();
+    res.send(complete);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+exports.getCompleteData = async (req, res) => {
+  try {
+    let data = await Complete({ _id: req.params.id });
     res.send(data);
   } catch (error) {
     console.log(error.message);

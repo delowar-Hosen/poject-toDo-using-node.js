@@ -8,6 +8,9 @@ const {
   newListData,
   listDelete,
   getTheme,
+  deleteData,
+  completeData,
+  getCompleteData,
 } = require("../controllers/user");
 
 router.post("/theme", theme);
@@ -17,5 +20,8 @@ router.post("/newlist", newList);
 router.get("/list", newListData);
 router.delete("/list/:id", listDelete);
 router.get("/gettheme", getTheme);
+router.delete("/deletedata/:id", deleteData);
+router.post("/complete", completeData);
+router.get("/done/:id", getCompleteData);
 
 module.exports = router;
