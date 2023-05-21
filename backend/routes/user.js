@@ -22,6 +22,6 @@ router.delete("/list/:id", listDelete);
 router.get("/gettheme", getTheme);
 router.delete("/deletedata/:id", deleteData);
 router.post("/complete", completeData);
-router.get("/done/:id", getCompleteData);
+router.get("/done/:title", getCompleteData);
 
 module.exports = router;

@@ -138,10 +138,8 @@ exports.completeData = async (req, res) => {
 
 exports.getCompleteData = async (req, res) => {
   try {
-    console.log(req.params.id);
-    let data = await Complete.find({ id: req.params.id });
+    let data = await Complete.find({title: req.params.title});
     res.send(data);
-    console.log(data);
   } catch (error) {
     console.log(error.message);
   }
