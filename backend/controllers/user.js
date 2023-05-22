@@ -26,9 +26,9 @@ exports.myDay = async (req, res) => {
     const {
       title,
       data,
-      year,
-      month,
-      date,
+      dYear,
+      dMonth,
+      dDays,
       rYear,
       rMonth,
       rDay,
@@ -40,9 +40,9 @@ exports.myDay = async (req, res) => {
 
     const dataStructer = await new dataModel({
       title,
-      dYear: year,
-      dMonth: month,
-      dDays: date,
+      dYear,
+      dMonth,
+      dDays,
       data,
       rYear,
       rMonth,
@@ -138,7 +138,16 @@ exports.completeData = async (req, res) => {
 
 exports.getCompleteData = async (req, res) => {
   try {
-    let data = await Complete.find({title: req.params.title});
+    let data = await Complete.find({ title: req.params.title });
+    res.send(data);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+exports.completeDataDelete = async (req, res) => {
+  try {
+    let data = await Complete.deleteOne({ _id: req.params.id });
     res.send(data);
   } catch (error) {
     console.log(error.message);

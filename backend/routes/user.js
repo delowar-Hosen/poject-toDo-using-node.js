@@ -11,6 +11,7 @@ const {
   deleteData,
   completeData,
   getCompleteData,
+  completeDataDelete,
 } = require("../controllers/user");
 
 router.post("/theme", theme);
@@ -23,5 +24,6 @@ router.get("/gettheme", getTheme);
 router.delete("/deletedata/:id", deleteData);
 router.post("/complete", completeData);
 router.get("/done/:title", getCompleteData);
+router.delete("/deletecomplete/:id", completeDataDelete);
 
 module.exports = router;
