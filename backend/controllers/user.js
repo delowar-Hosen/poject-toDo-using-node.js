@@ -114,7 +114,7 @@ exports.deleteData = async (req, res) => {
 
 exports.completeData = async (req, res) => {
   try {
-    console.log(req.body);
+
     let complete = await Complete({
       id: req.body.id,
       title: req.body.title,
