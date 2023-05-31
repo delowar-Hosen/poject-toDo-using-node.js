@@ -13,6 +13,7 @@ const {
   getCompleteData,
   completeDataDelete,
 } = require("../controllers/user");
+const { searchController } = require("../controllers/searchController");
 
 router.post("/theme", theme);
 router.post("/myday", myDay);
@@ -25,5 +26,6 @@ router.delete("/deletedata/:id", deleteData);
 router.post("/complete", completeData);
 router.get("/done/:title", getCompleteData);
 router.delete("/deletecomplete/:id", completeDataDelete);
+router.get("/alldata", searchController);
 
 module.exports = router;
